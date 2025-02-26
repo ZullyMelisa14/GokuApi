@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" routerLink="/characters">
+        <app-button value="Back"></app-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ characId?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="characId" class="ion-padding">
+  <ion-card class="character-card">
+    <ion-img [src]="characId.image" [alt]="characId.name" class="character-image"></ion-img>
+    <ion-card-header>
+      <ion-card-title class="text-center">{{ characId.name }}</ion-card-title>
+      <ion-card-subtitle>{{ characId.race }} - {{ characId.gender }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ characId.description }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="planet-card">
+    <ion-card-header>
+      <ion-card-title>Planeta Origen</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-img [src]="characId.originPlanet?.image" [alt]="characId.originPlanet?.name" class="planet-image"></ion-img>
+      <p><strong>Nombre:</strong> {{ characId.originPlanet?.name }}</p>
+      <p><strong>Destruido?:</strong> {{ characId.originPlanet?.isDestroyed ? 'Sí' : 'No' }}</p>
+      <p>{{ characId.originPlanet?.description }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="characId.transformations?.length" class="transformations-card">
+    <ion-card-header>
+      <ion-card-title>Transformaciones</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let transformation of characId.transformations">
+          <ion-thumbnail slot="start">
+            <ion-img [src]="transformation.image" [alt]="transformation.name" class="transformation-image"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ transformation.name }}</h2>
+            <p><strong>Ki:</strong> {{ transformation.ki }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

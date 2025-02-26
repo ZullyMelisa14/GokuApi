@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-button value="Back" routerLink="/home"></app-button>
+    </ion-buttons>
+    <ion-title class="text-center">Personajes</ion-title>
+    <ion-buttons slot="end">
+      <ion-toolbar>
+        <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="searchCharacters()" placeholder="Buscar personaje..."></ion-searchbar>
+      </ion-toolbar>
+      <ion-button (click)="openFilterModal()">
+        <ion-icon name="filter-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <div class="cards-container">
+    <ion-card *ngFor="let charac of filteredCharacters" class="character-card">
+      <ion-img 
+        [src]="charac.image" 
+        [alt]="charac.name" 
+        class="character-image" 
+        (click)="goToDetails(charac.id)">
+      </ion-img>
+      <ion-card-header>
+        <ion-card-title>{{ charac.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Raza:</strong> {{ charac.race }} - {{ charac.gender }}</p>
+        <p><strong>Base Ki:</strong> {{ charac.ki }}</p>
+        <p><strong>Total Ki:</strong> {{ charac.maxKi }}</p>
+        <p><strong>Afiliación:</strong> {{ charac.affiliation }}</p>
+      </ion-card-content>
+      <div class="buttons-container">
+
+      </div>
+    </ion-card>
+  </div>
+
+  <ion-footer>
+    <ion-toolbar>
+      <div class="pagination-container">
+        <app-button value="First" [disabled]="!links.first" (click)="loadCharacters(1)" color="primary"></app-button>
+        <app-button value="Previous" [disabled]="!links.previous" (click)="loadCharacters(currentPage - 1)" color="primary"></app-button>
+        <span class="page-info">Página {{ currentPage }} de {{ totalPages }}</span>
+        <app-button value="Next" [disabled]="!links.next" (click)="loadCharacters(currentPage + 1)" color="primary"></app-button>
+        <app-button value="Last" [disabled]="!links.last" (click)="loadCharacters(totalPages)" color="primary"></app-button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-button value="Buscar" (click)="applyFilters()" color="primary"></app-button>
+    </ion-buttons>
+    <ion-title>Filtrar Personajes</ion-title>
+    <ion-buttons slot="end">
+      <app-button value="Close" (click)="closeModal()"></app-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Selecciona Raza</ion-label>
+    <ion-select [(ngModel)]="selectedRace">
+      <ion-select-option *ngFor="let race of availableRaces" [value]="race">
+        {{ race }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Selecciona Género</ion-label>
+    <ion-select [(ngModel)]="selectedGender">
+      <ion-select-option *ngFor="let gender of availableGenders" [value]="gender">
+        {{ gender }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Selecciona Afiliación</ion-label>
+    <ion-select [(ngModel)]="selectedAffiliation">
+      <ion-select-option *ngFor="let affiliation of availableAffiliations" [value]="affiliation">
+        {{ affiliation }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-content>

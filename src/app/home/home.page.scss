@@ -1,0 +1,62 @@
+/* Fondo con imagen de Dragon Ball */
+.background {
+  --background: url('/assets/img/DB.jpeg') no-repeat center center/cover;
+  height: 1000vh; /* Ocupa toda la pantalla */
+  display: flex;
+  width: 100%;
+  }
+
+/* Contenedor del contenido */
+.content-container {
+  background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrado exacto */
+  text-align: center; /* Centra el contenido de texto */
+}
+
+/* Título con sombra */
+.title {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: white;
+}
+
+/* Subtítulo llamativo */
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffcc00; /* Amarillo Dragon Ball */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Descripción centrada */
+.description {
+  font-size: 1.1rem;
+  color: white;
+  margin: 20px auto; /* Centrado automático */
+  max-width: 500px; /* Limita el ancho */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Botón con fondo amarillo semitransparente */
+.custom-button {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 20px auto;
+  background: rgba(244, 161, 0, 0.7); /* Amarillo con transparencia */
+  color: white;
+  padding: 12px;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}

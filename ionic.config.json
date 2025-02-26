@@ -1,0 +1,7 @@
+{
+  "name": "DragonBallApi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,20 @@
+    .character-card, .planet-card, .transformations-card {
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    
+    .character-image, .planet-image, .transformation-image {
+        width: auto;
+        height: auto;
+        border-radius: 10px;
+    }
+    
+    .planet-card ion-img {
+        display: block;
+        margin: 0 auto;
+        max-width: 200px;
+        border-radius: 8px;
+    }
+    
+    
